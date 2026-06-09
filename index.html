@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natasha Rogen - Product Data Leader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 3%;
+        }
+
+        nav .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 60px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        /* Contact Info */
+        .contact-hero {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Main Sections */
+        section {
+            padding: 6rem 3%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+        }
+
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #f8f9fa;
+        }
+
+        .job {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .job h3 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-meta {
+            color: #999;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .job-meta span {
+            display: inline-block;
+            margin-right: 1.5rem;
+        }
+
+        .job ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .job li {
+            padding: 0.5rem 0 0.5rem 2rem;
+            position: relative;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .job li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Education & Skills */
+        .education, .skills {
+            background: white;
+        }
+
+        .education {
+            background: #f8f9fa;
+        }
+
+        .degree {
+            margin-bottom: 2.5rem;
+        }
+
+        .degree h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .degree-meta {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .skill-category p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Volunteer */
+        .volunteer {
+            background: white;
+        }
+
+        .volunteer-item {
+            margin-bottom: 2rem;
+        }
+
+        .volunteer-item h3 {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .volunteer-meta {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #3498db;
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 2%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            nav a {
+                display: block;
+                padding: 0.5rem;
+            }
+
+            .hero {
+                margin-top: 0;
+                min-height: auto;
+                padding: 4rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .title {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 4rem 2rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">NR</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Natasha Rogen</h1>
+            <p class="title">Product Data Leader</p>
+            <p>Transforming complex behavioral and pricing data into measurable business outcomes. Building data-driven products and diverse teams across B2B and B2C software.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#experience" class="btn btn-secondary">View My Work</a>
+            </div>
+            <div class="contact-hero">
+                <div class="contact-item">📍 Copenhagen</div>
+                <div class="contact-item">📧 nmrogen@gmail.com</div>
+                <div class="contact-item">📞 +45 53 85 62 82</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About</h2>
+        <p>With 7+ years of experience as a product data analyst, I specialize in translating complex behavioral and pricing data into actionable insights that drive measurable business outcomes. My background spans both B2B and B2C software, with deep expertise in experimentation frameworks, causal inference modeling, and data governance at scale.</p>
+        <p>At Too Good To Go, I built analytics systems that improved partner profitability by 17%, designed 20+ annual A/B tests, and established company-wide data governance standards. Beyond analytics, I co-founded Women in Product Nordics to grow and support the regional product community—a reflection of my conviction that strong products are built by diverse, well-supported teams.</p>
+        <p>I'm currently pursuing an MBA at CBS to develop the leadership skills needed to transition into strategic product roles in Nordic technology and sustainability.</p>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <h3>Too Good To Go</h3>
+            <div class="job-meta">
+                <span><strong>Product Data Analyst</strong></span>
+                <span>May 2022 – December 2025</span>
+            </div>
+            <p style="color: #999; margin-bottom: 1rem;">App-based marketplace reducing food waste across 19 countries, 100M+ users</p>
+            <ul>
+                <li>Analyzed pricing and behavioral data to assess new Dynamic Pricing models; ensured stable customer funnel and retention while increasing key partner profitability by 17%</li>
+                <li>Designed and ran 20+ A/B tests annually for customer app teams; collaborated with ML engineers to improve recommendation algorithms by 3%+</li>
+                <li>Built causal inference analysis framework to evaluate impact of product and external partner initiatives; proved business impact of integrations on store efficiency by 8%+</li>
+                <li>Delivered SQL-based dashboards and performance monitoring tools enabling ongoing KPI tracking and supply optimization, increasing top partner output by 5%+</li>
+                <li>Owned and implemented app and website event structure with Amplitude; created company-wide data governance system to ensure data quality and streamline cross-departmental collaboration</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Topology</h3>
+            <div class="job-meta">
+                <span><strong>Associate Product Manager</strong></span>
+                <span>February 2019 – April 2020</span>
+            </div>
+            <p style="color: #999; margin-bottom: 1rem;">Ecommerce eyewear startup using ML, FaceID sensor, and iOS app</p>
+            <ul>
+                <li>Led "Try Before You Buy" payment and fulfillment initiative, contributing to a 30%+ increase in sales</li>
+                <li>Implemented structured Agile sprint process, increasing order management efficiency by 35% and reducing data gathering time by 40%</li>
+                <li>Conducted user research to improve app experience; recommended sunsetting features with less than 75% user understanding</li>
+                <li>Created retail training materials focused on product understanding; facilitated training across 5 Canadian retail locations</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>Topology</h3>
+            <div class="job-meta">
+                <span><strong>Business Analyst</strong></span>
+                <span>August 2017 – January 2019</span>
+            </div>
+            <ul>
+                <li>Built analytics infrastructure and reporting using SQL and Amplitude analytics; established data visibility for app order behavior</li>
+                <li>Structured and analyzed customer feedback data across NPS, Trustpilot, and App Store; improved overall scores by 2 stars</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <h3>The Wealth Management Association</h3>
+            <div class="job-meta">
+                <span><strong>Research Analyst Intern</strong></span>
+                <span>October – December 2016</span>
+            </div>
+            <p style="color: #999; margin-bottom: 1rem;">Trade association for investment management firms, London, UK</p>
+            <ul>
+                <li>Analyzed British demographic trends and savings behavior using Office for National Statistics data in Excel for member insights</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <h2>Education</h2>
+
+        <div class="degree">
+            <h3>Master of Disaster Risk Management</h3>
+            <div class="degree-meta">University of Copenhagen, 2020–2022</div>
+            <p>Thesis: Individual and Household Earthquake Conditions: The Affluence-Vulnerability Interface</p>
+        </div>
+
+        <div class="degree">
+            <h3>Bachelor of Arts in Economics</h3>
+            <div class="degree-meta">University of San Francisco, 2014–2017</div>
+            <p>With exchange experiences at Universidad Pontificia Comillas (2017) and Boston University London (2016)</p>
+        </div>
+
+        <div class="degree">
+            <h3>International Baccalaureate Diploma</h3>
+            <div class="degree-meta">WB Ray High School, Texas, 2010–2014</div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills & Expertise</h2>
+
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Analysis & Methods</h3>
+                <p>Data storytelling, KPI development, risk identification and mitigation, experiment design, causal inference, Bayesian statistics, A/B testing.</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <p>SQL, BigQuery, Python, Looker, PowerBI, Amplitude, n8n</p>
+                <div class="tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">BigQuery</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Looker</span>
+                    <span class="tag">PowerBI</span>
+                    <span class="tag">Amplitude</span>
+                    <span class="tag">n8n</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Ways of Working</h3>
+                <p>Agile/Scrum methodology, shared documentation, cross-functional team collaboration, data governance, analytics leadership.</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <p>English (Native), Danish (Intermediate)</p>
+            </div>
+
+            <div class="skill-category">
+                <h3>Certifications</h3>
+                <p>Product Management Certificate – The Product School (2019)<br>Jira Users and Admins – Udemy (2019)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="experience">
+        <h2>Volunteer Leadership</h2>
+
+        <div class="volunteer-item">
+            <h3>Co-Founder, Women in Product Nordics</h3>
+            <div class="volunteer-meta">2023 – Present</div>
+            <p style="color: #666;">Building and connecting the Nordic product community through events, mentorship, and leadership development.</p>
+        </div>
+
+        <div class="volunteer-item">
+            <h3>Disaster Relief Project Manager, Danish Muslim Aid</h3>
+            <div class="volunteer-meta">2020 – 2022</div>
+        </div>
+
+        <div class="volunteer-item">
+            <h3>Executive Committee Secretary, DK Democrats Abroad</h3>
+            <div class="volunteer-meta">2020 – 2022</div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact">
+        <div class="social-links">
+            <a href="https://linkedin.com/in/nmrogen" title="LinkedIn">in</a>
+            <a href="mailto:nmrogen@gmail.com" title="Email">✉</a>
+        </div>
+        <p>Let's connect. I'm always interested in discussing data strategy, product leadership, and building inclusive product teams.</p>
+        <p><strong>nmrogen@gmail.com</strong> • <strong>+45 53 85 62 82</strong></p>
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Natasha Rogen. Built with HTML & CSS.</p>
+    </footer>
+
+</body>
+</html>
